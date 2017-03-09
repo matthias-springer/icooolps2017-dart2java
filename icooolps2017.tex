@@ -31,6 +31,8 @@
 % authorversion  Prepare an author version, with appropriate copyright-space text.
 
 \usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
 
 \newcommand{\cL}{{\cal L}}
 
@@ -62,7 +64,9 @@
 
 \title{{dart2java}: A Dart to Java Compiler}
 
-\authorinfo{Andrew Krieger \and Stanislav Manilov \and Vijay Menon \\ \and Jennifer Messerly \and Leaf Peterson \and Matthias Springer}{Google Inc., Seattle}{akrieger@math.ucla.edu \and s.z.manilov@sms.ed.ac.uk \and vsm@google.com \\ \and jmesserly@google.com \and leafp@google.com \and matthias.springer@prg.is.titech.ac.jp}
+\authorinfo{Andrew Krieger}{Univ. of California, Los Angeles}{akrieger@math.ucla.edu}
+\authorinfo{Stanislav Manilov}{University of Edinburgh}{s.z.manilov@sms.ed.ac.uk}
+\authorinfo{Matthias Springer}{Tokyo Institute of Technology}{matthias.springer@acm.org}
 
 \maketitle
 
@@ -77,20 +81,14 @@ This paper describes the architecture of dart2java, performance optimizations su
 \begin{CCSXML}
 <ccs2012>
 <concept>
-<concept_id>10011007.10011006.10011008</concept_id>
-<concept_desc>Software and its engineering~General programming languages</concept_desc>
+<concept_id>10011007.10011006.10011041.10011047</concept_id>
+<concept_desc>Software and its engineering~Source code generation</concept_desc>
 <concept_significance>500</concept_significance>
-</concept>
-<concept>
-<concept_id>10003752.10010124.10010138.10010143</concept_id>
-<concept_desc>Theory of computation~Program analysis</concept_desc>
-<concept_significance>300</concept_significance>
 </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Software and its engineering~General programming languages}
-\ccsdesc[300]{Theory of computation~Program analysis}
+\ccsdesc[500]{Software and its engineering~Source code generation}
 % end generated code
 
 % Legacy 1998 ACM Computing Classification System categories are also
@@ -100,14 +98,27 @@ This paper describes the architecture of dart2java, performance optimizations su
 %\category{F.3.2}{Logics and Meanings of Programs}{Semantics of Programming Languages}[Program analysis]
 
 \keywords
-keyword1, keyword2
+Dart, Java, compiler, source code generation
 
 \section{Introduction}
-Very short description of Dart. Why dart2java?
+Dart is an object-oriented class-based programming language developed by Google and was originally designed as a replacement of JavaScript in the Dartium web browser, which was capable of directly executing Dart code. Nowadays, Dart can be used for writing standalone applications running in the \emph{Dart VM} and for writing web applications using a source-to-source compiler to JavaScript. This paper presents the design and implementation of dart2java, an experimental Dart to Java compiler. Its design is inspired by Google's Dart to JavaScript compiler and reuses some of their ideas (such as the ``patching'' mechanism described later). 
+
+At first sight, Dart's syntax is similar to Java but it provides special notations for commonly used features such as list/map literals, getter/setter methods or factory constructors. Therefore, we think that Dart is an interesting alternative for Java programmers. The motivation for dart2java is twofold: First, dart2java provides a migration from a most Java-dominated environment to a Dart environment, because Java code can be called from Dart (and vice versa). Second, dart2java is experiment to see if Dart code is suitable to be executed on the JVM. Third, dart2java allows programmers to write Dart code for platforms where only Java is available.
 
 
 \section{Architecture}
-High-level overview of all compilation steps in a diagram (kernel AST, type inference, patching, code generation, for both SDK and user programs).
+Every Dart system has two main components: A Dart implementation (compiler/interpreter; e.g., the Dart VM or dart2java) and the Dart SDK. The latter one contains Dart source code of core interfaces (such as \texttt{int} and \texttt{object}) and standard library classes, and is meant to be shared by all Dart implementations. The Dart SDK provides two kinds of variation points for Dart implementations: First, some methods are declared as external, i.e., it is up to the Dart implementation to provide an implementation for the method. Second, certain core classes are pure interfaces (all methods are abstract) and it is up to the Dart implementation to provide an implementation class; only the public SDK interface type will be exposed to the programmer.
+
+\subsection{Compiling User Programs}
+\begin{figure}[!htp]
+    \includegraphics[width=\columnwidth]{dart2java_compile_user_code.pdf}
+    \label{fig:user_code_compilation}
+    \caption{User Code Compilation Process}
+\end{figure}
+Figure~\ref{fig:user_code_compilation} shows the compilation process for Dart programs. dart2java uses \emph{Analyzer} and \emph{Kernel}\footnote{\url{https://github.com/dart-lang/kernel}} to generate a generated a typed abstract syntax tree of every Dart class. This Dart AST is then transformed into a Java AST, generating one Java interface and one Java class for every Dart class, along with generic specializations for generic classes (see Section~\ref{sec:generic_spec}). The Java interface is necessary because every Dart class implicitly defines an interface that can be implemented by any class. The resulting Java classes can then be compiled and run with a copy of the compiled Dart SDK in the classpath.
+
+\subsection{Compiling the Dart SDK}
+The compilation process for the Dart SDK is mostly identical but starts with \emph{patching}: Some external methods are replaced with pure Dart implementations in dart2java. For example, the external factory constructor\footnote{A factory constructor is a static method that is run when instantiating a class. It may return an instance of a subclass.} for \texttt{Map} is replaced with a concrete factory constructor creating an instance of \texttt{LinkedHashMap}, a class that is implemented in Dart and shipped together with dart2java. Patching allows us to implement external methods in Dart without having to change the Dart SDK itself.
 
 
 \section{Performance: Primitive Types Only}
@@ -117,6 +128,7 @@ High-level overview of all compilation steps in a diagram (kernel AST, type infe
 \subsection{Non-nullability}
 
 \subsection{Generic Specialization}
+\label{sec:generic_spec}
 
 \subsection{Benchmarks}
 
@@ -134,6 +146,9 @@ Generic specialization in .NET using JIT, language interoperability in related p
 
 \section{Conclusion}
 Preliminary findings, can the same techniques be applied to other projects?
+
+\acks
+Thank Vijay, Jennifer, Leaf
 
 % The 'abbrvnat' bibliography style is recommended.
 
