@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="186.40778mm"
+   height="56.987743mm"
+   viewBox="0 0 660.49999 201.92507"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="helper_class.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker4651"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4404"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker7131"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path7133"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;fill:#ffffff;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(0.8) translate(-6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker6969"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path6971"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;fill:#ffffff;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(0.8) translate(-6,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Mend"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4317"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4634"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4636"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4606"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4608"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4584"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4586"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="EmptyTriangleOutL-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4468-8"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7131-1"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7133-9"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7131-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7133-8"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7131-0"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7133-4"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7131-0-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7133-4-1"
+         d="m 5.77,0 -8.65,5 0,-10 8.65,5 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4651-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4404-8"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4651-6-9"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4404-8-9"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="330.04511"
+     inkscape:cy="223.15929"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     showguides="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-nodes="true"
+     inkscape:bbox-nodes="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="2495"
+     inkscape:window-height="1416"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4136"
+       originx="-9.4999998"
+       originy="-736.58741" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.5,-113.8497)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="87.232498"
+       y="136.29973"
+       id="text4138-27-2-5-1-1-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="87.232498"
+         y="136.29973"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan6386-1-1-9-6-0-0"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4935">int</tspan> x = object.hashCode();</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="23.6"
+       y="136.95972"
+       id="text4138-27-2-5-1-1-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="23.6"
+         y="136.95972"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;text-anchor:start"
+         id="tspan6386-1-1-9-6-0-4">Dart:</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="206.01999"
+       y="186.79973"
+       id="text4138-27-2-5-1-1-4-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="206.01999"
+         y="186.79973"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan6386-1-1-9-6-0-0-9"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4939">int</tspan> x = ObjectHelper.getHashCode(object);</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4651)"
+       d="m 210,197.86221 0,15 25,0"
+       id="path4389"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="253.2325"
+       y="219.34221"
+       id="text4138-27-2-5-1-1-6-0-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="253.2325"
+         y="219.34221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan6386-1-1-9-6-0-4-7-3"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4943">if</tspan> (object == <tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4941">null</tspan>) { <tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4945">return</tspan> 2011; }</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4651-6)"
+       d="m 210,227.86221 0,15 25,0"
+       id="path4389-5"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="253.2325"
+       y="249.34221"
+       id="text4138-27-2-5-1-1-6-0-6-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="253.2325"
+         y="249.34221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4699"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4947">if</tspan> (object <tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4949">instanceOf</tspan> DartObject) { </tspan><tspan
+         sodipodi:role="line"
+         x="253.2325"
+         y="271.21722"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4703"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4951">    return</tspan> object.getHashCode(); }</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4651-6-9)"
+       d="m 210,277.86221 0,15 25,0"
+       id="path4389-5-6"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="253.2325"
+       y="299.34222"
+       id="text4138-27-2-5-1-1-6-0-6-2-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="253.2325"
+         y="299.34222"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4703-4"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4953">else</tspan> { <tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4955">return</tspan> object.hashCode(); }</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="24.4"
+       y="166.62471"
+       id="text4138-27-2-5-1-1-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="24.4"
+         y="166.62471"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4796"><tspan
+   id="tspan4842"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;text-anchor:start">Static type is </tspan>int</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="207.91728"
+       y="167.2747"
+       id="text4138-27-2-5-1-1-9-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="207.91728"
+         y="167.2747"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;text-anchor:start"
+         id="tspan4796-1">else</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4836"
+       width="169.5"
+       height="114.5"
+       x="20.5"
+       y="152.36221" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.99999994;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4838"
+       width="459.5"
+       height="154.5"
+       x="200.5"
+       y="152.86221" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="28.25"
+       y="188.84221"
+       id="text4138-27-2-5-1-1-4-9-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="28.25"
+         y="188.84221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan6386-1-1-9-6-0-0-9-5"><tspan
+   style="-inkscape-font-specification:'Courier, Bold';font-family:Courier;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:17.5px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%"
+   id="tspan4937">int</tspan> x = </tspan><tspan
+         sodipodi:role="line"
+         x="28.25"
+         y="210.71721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4862"> IntegerHelper.</tspan><tspan
+         sodipodi:role="line"
+         x="28.25"
+         y="232.59221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4864"> getHashCode(</tspan><tspan
+         sodipodi:role="line"
+         x="28.25"
+         y="254.46721"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4866">   object);</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="24.4"
+       y="285.62473"
+       id="text4138-27-2-5-1-1-9-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="24.4"
+         y="285.62473"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4796-8"><tspan
+           id="tspan4842-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-align:start;text-anchor:start">Static type is </tspan><tspan
+           id="tspan4909"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Courier;-inkscape-font-specification:'Courier, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start">float/bool</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="23.525097"
+       y="300.63095"
+       id="text4138-27-2-5-1-1-9-5-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="23.525097"
+         y="300.63095"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;font-family:Courier;-inkscape-font-specification:Courier;text-align:start;text-anchor:start"
+         id="tspan4796-8-9">...</tspan></text>
+  </g>
+</svg>

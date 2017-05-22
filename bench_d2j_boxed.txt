@@ -1,0 +1,622 @@
+00:00 [32m+0[0m: codegen dart2java BardCount[0m
+  [33mSkip: Test expected to fail.[0m
+00:00 [32m+0[0m[33m ~1[0m: codegen dart2java matrix[0m
+Running benchmark...
+Matrix(RunTime): 1508.0 us.
+Done.
+
+00:12 [32m+1[0m[33m ~1[0m: codegen dart2java specialized_list[0m
+Expect output 5, 7, 9
+5
+7
+9
+
+00:13 [32m+2[0m[33m ~1[0m: codegen dart2java is_operator_test[0m
+
+00:13 [32m+3[0m[33m ~1[0m: codegen dart2java classes[0m
+  [33mSkip: Test expected to fail.[0m
+00:13 [32m+3[0m[33m ~2[0m: codegen dart2java minimal[0m
+
+00:14 [32m+4[0m[33m ~2[0m: codegen dart2java HelloWorld[0m
+Hello, World!
+
+00:14 [32m+5[0m[33m ~2[0m: codegen dart2java generics[0m
+Expecting 12, 11, 13, 14.01, 2.3, 50, 51, 50, 51
+12
+11
+13
+14.01
+2.3
+50
+51
+50
+51
+
+00:15 [32m+6[0m[33m ~2[0m: codegen dart2java addition[0m
+4
+8
+
+00:15 [32m+7[0m[33m ~2[0m: codegen dart2java interface_type_profile[0m
+Percent of objects that are an A0: 43.801899999999996 (expected 0.4375)
+Percent of objects that are an A1: 37.479800000000004 (expected 0.375)
+Percent of objects that are an A2: 34.3617 (expected 0.34375)
+Percent of objects that are an A3: 32.805800000000005 (expected 0.328125)
+
+00:16 [32m+8[0m[33m ~2[0m: codegen dart2java is_interfaces_test[0m
+
+00:17 [32m+9[0m[33m ~2[0m: codegen dart2java deltablue[0m
+Running benchmark...
+DeltaBlue(RunTime): 289.2 us.
+Done.
+
+00:29 [32m+10[0m[33m ~2[0m: codegen dart2java richards[0m
+Running benchmark...
+Richards(RunTime): 206.6326530612245 us.
+Done.
+
+00:41 [32m+11[0m[33m ~2[0m: codegen dart2java havlak[0m
+00:42 [32m+11[0m[33m ~2[0m[31m -1[0m: codegen dart2java havlak [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stderr: /home/matthias/dart2java/test/codegen_expect/havlak/run.stderr
+  
+  
+  package:test                  expect
+  test/codegen_test.dart 233:3  _run
+  test/codegen_test.dart 135:7  runTest.<fn>
+  
+00:42 [32m+11[0m[33m ~2[0m[31m -1[0m: codegen dart2java tracer[0m
+Running benchmark...
+Tracer(RunTime): 65.26451612903226 us.
+Done.
+
+00:54 [32m+12[0m[33m ~2[0m[31m -1[0m: codegen dart2java fluidmotion[0m
+[warning] Unsound implicit cast from dynamic to List<double> (gen/codegen_tests/fluidmotion.dart, line 399, col 23)
+FluidMotion(RunTime): 297.6296296296296 us.
+
+01:06 [32m+13[0m[33m ~2[0m[31m -1[0m: codegen dart2java barnsleyfern[0m
+Running benchmark...
+Barnsley Fern Fractal(RunTime): 2596.75 us.
+Done.
+
+01:18 [32m+14[0m[33m ~2[0m[31m -1[0m: codegen dart2java gameoflife[0m
+Running benchmark...
+GameOfLife(RunTime): 24612.0 us.
+Done.
+
+01:45 [32m+15[0m[33m ~2[0m[31m -1[0m: codegen dart2java diamondsquare[0m
+01:45 [32m+15[0m[33m ~2[0m[31m -2[0m: codegen dart2java diamondsquare [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stderr: /home/matthias/dart2java/test/codegen_expect/diamondsquare/run.stderr
+  
+  
+  package:test                  expect
+  test/codegen_test.dart 233:3  _run
+  test/codegen_test.dart 135:7  runTest.<fn>
+  
+01:45 [32m+15[0m[33m ~2[0m[31m -2[0m: codegen dart2java-multifile file-imports[0m
+01:49 [32m+15[0m[33m ~2[0m[31m -3[0m: codegen dart2java-multifile file-imports [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <70>
+     Which: is not a value equal to <0>
+  Reason: dart2java failed.
+    stdout: /home/matthias/dart2java/test/codegen_expect/multifile/file-imports/dart2java_1.stdout
+    stderr: /home/matthias/dart2java/test/codegen_expect/multifile/file-imports/dart2java_1.stderr
+  
+  
+  package:test                            expect
+  test/multifile_codegen_test.dart 181:7  runTest.<fn>
+  
+01:49 [32m+15[0m[33m ~2[0m[31m -3[0m: unit dart2java generic_type_check[0m
+JUnit version 4.12
+............E
+Time: 0.015
+There was 1 failure:
+1) testTypeCheckFailsPrimitive(Tests)
+java.lang.Exception: Unexpected exception, expected<java.lang.ClassCastException> but was<java.lang.RuntimeException>
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+Caused by: java.lang.RuntimeException: TypeError: java.lang.String is not a subtype of java.lang.Integer
+	at dart._runtime.types.simple.Type.check(Type.java:92)
+	at dart._internal.LinkedHashMap.operatorAtPut_LinkedHashMap(LinkedHashMap.java:48)
+	at dart._internal.LinkedHashMap.operatorAtPut_Map(LinkedHashMap.java:204)
+	at scenario.__TopLevel.testTypeCheckFailsPrimitive(__TopLevel.java:28)
+	at Tests.testTypeCheckFailsPrimitive(Tests.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:19)
+	... 21 more
+
+FAILURES!!!
+Tests run: 12,  Failures: 1
+
+
+01:50 [32m+15[0m[33m ~2[0m[31m -4[0m: unit dart2java generic_type_check [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stdout: /home/matthias/dart2java/gen/unit_output/generic_type_check/run.stdout
+    stderr: /home/matthias/dart2java/gen/unit_output/generic_type_check/run.stderr
+  
+  
+  package:test               expect
+  test/unit_test.dart 216:3  _run
+  test/unit_test.dart 131:5  runTest.<fn>
+  
+01:50 [32m+15[0m[33m ~2[0m[31m -4[0m: unit dart2java arguments[0m
+JUnit version 4.12
+.
+Time: 0.006
+
+OK (1 test)
+
+
+01:50 [32m+16[0m[33m ~2[0m[31m -4[0m: unit dart2java null[0m
+JUnit version 4.12
+..
+Time: 0.003
+
+OK (2 tests)
+
+
+01:51 [32m+17[0m[33m ~2[0m[31m -4[0m: unit dart2java top_level[0m
+JUnit version 4.12
+.
+Time: 0.003
+
+OK (1 test)
+
+
+01:51 [32m+18[0m[33m ~2[0m[31m -4[0m: unit dart2java generics[0m
+JUnit version 4.12
+...
+Time: 0.009
+
+OK (3 tests)
+
+
+01:52 [32m+19[0m[33m ~2[0m[31m -4[0m: unit dart2java list[0m
+JUnit version 4.12
+.....E
+Time: 0.01
+There was 1 failure:
+1) testJavaListInterface(Tests)
+java.lang.ClassCastException: dart._runtime.base.DartList cannot be cast to java.util.List
+	at Tests.testJavaListInterface(Tests.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+
+FAILURES!!!
+Tests run: 5,  Failures: 1
+
+
+01:52 [32m+19[0m[33m ~2[0m[31m -5[0m: unit dart2java list [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stdout: /home/matthias/dart2java/gen/unit_output/list/run.stdout
+    stderr: /home/matthias/dart2java/gen/unit_output/list/run.stderr
+  
+  
+  package:test               expect
+  test/unit_test.dart 216:3  _run
+  test/unit_test.dart 131:5  runTest.<fn>
+  
+01:52 [32m+19[0m[33m ~2[0m[31m -5[0m: unit dart2java control_flow[0m
+JUnit version 4.12
+...
+Time: 0.007
+
+OK (3 tests)
+
+
+01:53 [32m+20[0m[33m ~2[0m[31m -5[0m: unit dart2java for_in[0m
+JUnit version 4.12
+..
+Time: 0.008
+
+OK (2 tests)
+
+
+01:53 [32m+21[0m[33m ~2[0m[31m -5[0m: unit dart2java downcast[0m
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 36, col 47)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 37, col 45)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 41, col 53)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 42, col 51)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 53, col 20)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 57, col 20)
+JUnit version 4.12
+I.II..I.EI.E.EI
+Time: 0.012
+There were 3 failures:
+1) testDowncastStringAtReturnError(Tests)
+java.lang.AssertionError: 
+Expected: a string containing "TypeError", "double", "subtype", "String" in order
+     but: was "TypeError: java.lang.Double is not a subtype of java.lang.String"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at Tests.testDowncastStringAtReturnError(Tests.java:50)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+2) testDowncastStringAtCallError(Tests)
+java.lang.AssertionError: 
+Expected: a string containing "TypeError", "double", "subtype", "String" in order
+     but: was "TypeError: java.lang.Double is not a subtype of java.lang.String"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at Tests.testDowncastStringAtCallError(Tests.java:95)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+3) testDowncastStringAtLocalError(Tests)
+java.lang.AssertionError: 
+Expected: a string containing "TypeError", "double", "subtype", "String" in order
+     but: was "TypeError: java.lang.Double is not a subtype of java.lang.String"
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at Tests.testDowncastStringAtLocalError(Tests.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+
+FAILURES!!!
+Tests run: 6,  Failures: 3
+
+
+01:54 [32m+21[0m[33m ~2[0m[31m -6[0m: unit dart2java downcast [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stdout: /home/matthias/dart2java/gen/unit_output/downcast/run.stdout
+    stderr: /home/matthias/dart2java/gen/unit_output/downcast/run.stderr
+  
+  
+  package:test               expect
+  test/unit_test.dart 216:3  _run
+  test/unit_test.dart 131:5  runTest.<fn>
+  
+01:54 [32m+21[0m[33m ~2[0m[31m -6[0m: unit dart2java generic_extends[0m
+01:55 [32m+21[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_extends [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: javac failed.
+    stdout: 
+    stderr: /home/matthias/dart2java/gen/unit_output/generic_extends/Tests.java:30: error: reference to assertEquals is ambiguous
+      assertEquals(60, __TopLevel.testExtends());
+      ^
+    both method assertEquals(long,long) in Assert and method assertEquals(Object,Object) in Assert match
+  Note: /home/matthias/dart2java/gen/unit_output/generic_extends/scenario/__TopLevel.java uses unchecked or unsafe operations.
+  Note: Recompile with -Xlint:unchecked for details.
+  1 error
+  
+  
+  
+  package:test               expect
+  test/unit_test.dart 198:3  _javaCompile
+  test/unit_test.dart 130:5  runTest.<fn>
+  
+01:55 [32m+21[0m[33m ~2[0m[31m -7[0m: unit dart2java dart_class[0m
+JUnit version 4.12
+.
+Time: 0.007
+
+OK (1 test)
+
+
+01:55 [32m+22[0m[33m ~2[0m[31m -7[0m: unit dart2java basic[0m
+JUnit version 4.12
+..
+Time: 0.006
+
+OK (2 tests)
+
+
+01:56 [32m+23[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_constructor[0m
+JUnit version 4.12
+.
+Time: 0.009
+
+OK (1 test)
+
+
+01:56 [32m+24[0m[33m ~2[0m[31m -7[0m: unit dart2java dart_object[0m
+JUnit version 4.12
+....
+Time: 0.007
+
+OK (4 tests)
+
+
+01:57 [32m+25[0m[33m ~2[0m[31m -7[0m: unit dart2java static[0m
+JUnit version 4.12
+.
+Time: 0.005
+
+OK (1 test)
+
+
+01:57 [32m+26[0m[33m ~2[0m[31m -7[0m: unit dart2java dynamic[0m
+JUnit version 4.12
+.
+Time: 0.045
+
+OK (1 test)
+
+
+01:58 [32m+27[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_extends_type_check[0m
+JUnit version 4.12
+...
+Time: 0.009
+
+OK (3 tests)
+
+
+01:59 [32m+28[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_class[0m
+JUnit version 4.12
+..
+Time: 0.009
+
+OK (2 tests)
+
+
+01:59 [32m+29[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_assignment[0m
+JUnit version 4.12
+..
+Time: 0.009
+
+OK (2 tests)
+
+
+02:00 [32m+30[0m[33m ~2[0m[31m -7[0m: unit dart2java primitive_types[0m
+JUnit version 4.12
+...........
+Time: 0.011
+
+OK (11 tests)
+
+
+02:00 [32m+31[0m[33m ~2[0m[31m -7[0m: unit dart2java generic_specialization[0m
+JUnit version 4.12
+....
+Time: 0.011
+
+OK (4 tests)
+
+
+02:01 [32m+32[0m[33m ~2[0m[31m -7[0m: unit dart2java let[0m
+JUnit version 4.12
+.
+Time: 0.006
+
+OK (1 test)
+
+
+02:02 [32m+33[0m[33m ~2[0m[31m -7[0m: unit dart2java interface[0m
+JUnit version 4.12
+.
+Time: 0.007
+
+OK (1 test)
+
+
+02:02 [32m+34[0m[33m ~2[0m[31m -7[0m: unit dart2java map[0m
+JUnit version 4.12
+.
+Time: 0.011
+
+OK (1 test)
+
+
+02:03 [32m+35[0m[33m ~2[0m[31m -7[0m: unit dart2java dart_class_generic[0m
+JUnit version 4.12
+.
+Time: 0.011
+
+OK (1 test)
+
+
+02:03 [32m+36[0m[33m ~2[0m[31m -7[0m: unit dart2java constructor[0m
+JUnit version 4.12
+.E..
+Time: 0.011
+There was 1 failure:
+1) testIntializerOrder(Tests)
+java.lang.ClassCastException: dart._runtime.base.DartList cannot be cast to java.util.List
+	at Tests.testIntializerOrder(Tests.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+
+FAILURES!!!
+Tests run: 3,  Failures: 1
+
+
+02:04 [32m+36[0m[33m ~2[0m[31m -8[0m: unit dart2java constructor [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <1>
+     Which: is not a value equal to <0>
+  Reason: java failed.
+    stdout: /home/matthias/dart2java/gen/unit_output/constructor/run.stdout
+    stderr: /home/matthias/dart2java/gen/unit_output/constructor/run.stderr
+  
+  
+  package:test               expect
+  test/unit_test.dart 216:3  _run
+  test/unit_test.dart 131:5  runTest.<fn>
+  
+02:04 [32m+36[0m[33m ~2[0m[31m -8[0m: unit dart2java java_class[0m
+  [33mSkip: Test expected to fail.[0m
+02:04 [32m+36[0m[33m ~3[0m[31m -8[0m: typesystem typesystem compilation[0m
+02:05 [32m+37[0m[33m ~3[0m[31m -8[0m: typesystem typesystem dart._runtime.types.simple.test.InterfaceTypeTest[0m
+02:05 [32m+38[0m[33m ~3[0m[31m -8[0m: [31mSome tests failed.[0m
+

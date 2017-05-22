@@ -1,0 +1,316 @@
+00:00 [32m+0[0m: codegen dart2java BardCount[0m
+  [33mSkip: Test expected to fail.[0m
+00:00 [32m+0[0m[33m ~1[0m: codegen dart2java matrix[0m
+Running benchmark...
+Matrix(RunTime): 846.3333333333334 us.
+Done.
+
+00:12 [32m+1[0m[33m ~1[0m: codegen dart2java specialized_list[0m
+Expect output 5, 7, 9
+5
+7
+9
+
+00:12 [32m+2[0m[33m ~1[0m: codegen dart2java is_operator_test[0m
+
+00:13 [32m+3[0m[33m ~1[0m: codegen dart2java classes[0m
+  [33mSkip: Test expected to fail.[0m
+00:13 [32m+3[0m[33m ~2[0m: codegen dart2java minimal[0m
+
+00:13 [32m+4[0m[33m ~2[0m: codegen dart2java HelloWorld[0m
+Hello, World!
+
+00:14 [32m+5[0m[33m ~2[0m: codegen dart2java generics[0m
+Expecting 12, 11, 13, 14.01, 2.3, 50, 51, 50, 51
+12
+11
+13
+14.01
+2.3
+50
+51
+50
+51
+
+00:15 [32m+6[0m[33m ~2[0m: codegen dart2java addition[0m
+4
+8
+
+00:15 [32m+7[0m[33m ~2[0m: codegen dart2java interface_type_profile[0m
+Percent of objects that are an A0: 43.801899999999996 (expected 0.4375)
+Percent of objects that are an A1: 37.479800000000004 (expected 0.375)
+Percent of objects that are an A2: 34.3617 (expected 0.34375)
+Percent of objects that are an A3: 32.805800000000005 (expected 0.328125)
+
+00:16 [32m+8[0m[33m ~2[0m: codegen dart2java is_interfaces_test[0m
+
+00:17 [32m+9[0m[33m ~2[0m: codegen dart2java deltablue[0m
+Running benchmark...
+DeltaBlue(RunTime): 214.1 us.
+Done.
+
+00:20 [32m+10[0m[33m ~2[0m: codegen dart2java richards[0m
+Running benchmark...
+Richards(RunTime): 93.81818181818183 us.
+Done.
+
+00:23 [32m+11[0m[33m ~2[0m: codegen dart2java havlak[0m
+Havlak(RunTime): 2.0692864529472597 us.
+
+00:26 [32m+12[0m[33m ~2[0m: codegen dart2java tracer[0m
+Running benchmark...
+Tracer(RunTime): 367.6666666666667 us.
+Done.
+
+00:30 [32m+13[0m[33m ~2[0m: codegen dart2java fluidmotion[0m
+[warning] Unsound implicit cast from dynamic to List<double> (gen/codegen_tests/fluidmotion.dart, line 399, col 23)
+FluidMotion(RunTime): 56.02777777777778 us.
+
+00:33 [32m+14[0m[33m ~2[0m: codegen dart2java barnsleyfern[0m
+Running benchmark...
+Barnsley Fern Fractal(RunTime): 1623.0 us.
+Done.
+
+00:37 [32m+15[0m[33m ~2[0m: codegen dart2java gameoflife[0m
+Running benchmark...
+GameOfLife(RunTime): 11081.0 us.
+Done.
+
+00:49 [32m+16[0m[33m ~2[0m: codegen dart2java diamondsquare[0m
+Running benchmark...
+DiamondSquare(RunTime): 163.0 us.
+Done.
+
+00:52 [32m+17[0m[33m ~2[0m: codegen dart2java-multifile file-imports[0m
+00:55 [32m+17[0m[33m ~2[0m[31m -1[0m: codegen dart2java-multifile file-imports [1m[31m[E][0m[0m
+  Expected: a value equal to <0>
+    Actual: <70>
+     Which: is not a value equal to <0>
+  Reason: dart2java failed.
+    stdout: /home/matthias/dart2java/test/codegen_expect/multifile/file-imports/dart2java_1.stdout
+    stderr: /home/matthias/dart2java/test/codegen_expect/multifile/file-imports/dart2java_1.stderr
+  
+  
+  package:test                            expect
+  test/multifile_codegen_test.dart 181:7  runTest.<fn>
+  
+00:55 [32m+17[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_type_check[0m
+JUnit version 4.12
+............
+Time: 0.019
+
+OK (12 tests)
+
+
+00:56 [32m+18[0m[33m ~2[0m[31m -1[0m: unit dart2java arguments[0m
+JUnit version 4.12
+.
+Time: 0.003
+
+OK (1 test)
+
+
+00:57 [32m+19[0m[33m ~2[0m[31m -1[0m: unit dart2java null[0m
+JUnit version 4.12
+..
+Time: 0.003
+
+OK (2 tests)
+
+
+00:57 [32m+20[0m[33m ~2[0m[31m -1[0m: unit dart2java top_level[0m
+JUnit version 4.12
+.
+Time: 0.003
+
+OK (1 test)
+
+
+00:58 [32m+21[0m[33m ~2[0m[31m -1[0m: unit dart2java generics[0m
+JUnit version 4.12
+...
+Time: 0.011
+
+OK (3 tests)
+
+
+00:58 [32m+22[0m[33m ~2[0m[31m -1[0m: unit dart2java list[0m
+JUnit version 4.12
+.....
+Time: 0.011
+
+OK (5 tests)
+
+
+00:59 [32m+23[0m[33m ~2[0m[31m -1[0m: unit dart2java control_flow[0m
+JUnit version 4.12
+...
+Time: 0.004
+
+OK (3 tests)
+
+
+00:59 [32m+24[0m[33m ~2[0m[31m -1[0m: unit dart2java for_in[0m
+JUnit version 4.12
+..
+Time: 0.011
+
+OK (2 tests)
+
+
+01:00 [32m+25[0m[33m ~2[0m[31m -1[0m: unit dart2java downcast[0m
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 36, col 47)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 37, col 45)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 41, col 53)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 42, col 51)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 53, col 20)
+[warning] Unsound implicit cast from List<dynamic> to List<String> (gen/unit_tests/downcast/scenario.dart, line 57, col 20)
+JUnit version 4.12
+I.II..I.I..I
+Time: 0.01
+
+OK (6 tests)
+
+
+01:01 [32m+26[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_extends[0m
+JUnit version 4.12
+..
+Time: 0.015
+
+OK (2 tests)
+
+
+01:02 [32m+27[0m[33m ~2[0m[31m -1[0m: unit dart2java dart_class[0m
+JUnit version 4.12
+.
+Time: 0.007
+
+OK (1 test)
+
+
+01:02 [32m+28[0m[33m ~2[0m[31m -1[0m: unit dart2java basic[0m
+JUnit version 4.12
+..
+Time: 0.006
+
+OK (2 tests)
+
+
+01:03 [32m+29[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_constructor[0m
+JUnit version 4.12
+.
+Time: 0.01
+
+OK (1 test)
+
+
+01:04 [32m+30[0m[33m ~2[0m[31m -1[0m: unit dart2java dart_object[0m
+JUnit version 4.12
+....
+Time: 0.007
+
+OK (4 tests)
+
+
+01:04 [32m+31[0m[33m ~2[0m[31m -1[0m: unit dart2java static[0m
+JUnit version 4.12
+.
+Time: 0.005
+
+OK (1 test)
+
+
+01:05 [32m+32[0m[33m ~2[0m[31m -1[0m: unit dart2java dynamic[0m
+JUnit version 4.12
+.
+Time: 0.056
+
+OK (1 test)
+
+
+01:05 [32m+33[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_extends_type_check[0m
+JUnit version 4.12
+...
+Time: 0.009
+
+OK (3 tests)
+
+
+01:06 [32m+34[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_class[0m
+JUnit version 4.12
+..
+Time: 0.009
+
+OK (2 tests)
+
+
+01:07 [32m+35[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_assignment[0m
+JUnit version 4.12
+..
+Time: 0.009
+
+OK (2 tests)
+
+
+01:07 [32m+36[0m[33m ~2[0m[31m -1[0m: unit dart2java primitive_types[0m
+JUnit version 4.12
+...........
+Time: 0.01
+
+OK (11 tests)
+
+
+01:08 [32m+37[0m[33m ~2[0m[31m -1[0m: unit dart2java generic_specialization[0m
+JUnit version 4.12
+....
+Time: 0.017
+
+OK (4 tests)
+
+
+01:09 [32m+38[0m[33m ~2[0m[31m -1[0m: unit dart2java let[0m
+JUnit version 4.12
+.
+Time: 0.004
+
+OK (1 test)
+
+
+01:10 [32m+39[0m[33m ~2[0m[31m -1[0m: unit dart2java interface[0m
+JUnit version 4.12
+.
+Time: 0.007
+
+OK (1 test)
+
+
+01:10 [32m+40[0m[33m ~2[0m[31m -1[0m: unit dart2java map[0m
+JUnit version 4.12
+.
+Time: 0.012
+
+OK (1 test)
+
+
+01:11 [32m+41[0m[33m ~2[0m[31m -1[0m: unit dart2java dart_class_generic[0m
+JUnit version 4.12
+.
+Time: 0.016
+
+OK (1 test)
+
+
+01:13 [32m+42[0m[33m ~2[0m[31m -1[0m: unit dart2java constructor[0m
+JUnit version 4.12
+...
+Time: 0.012
+
+OK (3 tests)
+
+
+01:13 [32m+43[0m[33m ~2[0m[31m -1[0m: unit dart2java java_class[0m
+  [33mSkip: Test expected to fail.[0m
+01:13 [32m+43[0m[33m ~3[0m[31m -1[0m: typesystem typesystem compilation[0m
+01:14 [32m+44[0m[33m ~3[0m[31m -1[0m: typesystem typesystem dart._runtime.types.simple.test.InterfaceTypeTest[0m
+01:14 [32m+45[0m[33m ~3[0m[31m -1[0m: [31mSome tests failed.[0m
+
