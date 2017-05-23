@@ -22,7 +22,7 @@
 
 %\documentclass[preprint,nonatbib,9pt]{sigplanconf}
 
-\documentclass[sigplan,9pt]{acmart}
+\documentclass[sigplan]{acmart}
 
 % The following \documentclass options may be useful:
 
@@ -41,6 +41,8 @@
 \usepackage{color}
 \usepackage{tabularx}
 %\usepackage{flushend}
+\usepackage{MnSymbol}
+\usepackage[framemethod=TikZ]{mdframed}
 
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -48,18 +50,18 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
 \lstset{ %
-  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  %backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
   basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
+  commentstyle=\color{gray}\itshape,    % comment style
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=single,                    % adds a frame around the code
+  %frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  keywordstyle=\color{blue},       % keyword style
+  keywordstyle=\bfseries,       % keyword style
   language=Java,                 % the language of the code
   morekeywords={*,...},           % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -70,12 +72,24 @@
   showstringspaces=false,          % underline spaces within strings only
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=0,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  stringstyle=\color{mymauve},     % string literal style
+  stringstyle=\color{gray}\itshape,     % string literal style
   tabsize=2,                       % sets default tabsize to 2 spaces
   %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
+\lstset{prebreak=\raisebox{0ex}[0ex][0ex]
+        {\ensuremath{\rhookswarrow}}}
+\lstset{postbreak=\raisebox{0ex}[0ex][0ex]
+        {\ensuremath{\rcurvearrowse\space}}}
+%\lstset{breaklines=true, breakatwhitespace=true}
 
 \newcommand{\cL}{{\cal L}}
+
+\copyrightyear{2017}
+\acmYear{2017}
+\setcopyright{acmlicensed}
+\acmConference{ICOOOLPS'17}{June 19, 2017}{Barcelona ,
+Spain}\acmPrice{15.00}\acmDOI{10.1145/3098572.3098575}
+\acmISBN{978-1-4503-5088-4/17/06}
 
 \begin{document}
 
@@ -86,25 +100,25 @@
 %\authorinfo{Matthias Springer\Mark{\S} \and Andrew Krieger\Mark{\textdagger} \and Stanislav Manilov\Mark{\ddag} \and Hidehiko Masuhara\Mark{\S}}{\Mark{\S}Tokyo Institute of Technology \and 
 %\Mark{\textdagger}University of California, Los Angeles \and \Mark{\ddag}University of Edinburgh}{matthias.springer@acm.org \and akrieger@math.ucla.edu \and s.z.manilov@sms.ed.ac.uk \and masuhara@acm.org}
 
-\author{Matthias Springer}
+\author[M. Springer]{Matthias Springer}
 \affiliation{
   \institution{Tokyo Institute of Technology}            %% \institution is required
 }
 \email{matthias.springer@acm.org}          %% \email is recommended
 
-\author{Andrew Krieger}
+\author[A. Krieger]{Andrew Krieger}
 \affiliation{
   \institution{University of California, Los Angeles}            %% \institution is required
 }
 \email{akrieger@math.ucla.edu}          %% \email is recommended
 
-\author{Stanislav Manilov}
+\author[S. Manilov]{Stanislav Manilov}
 \affiliation{
   \institution{University of Edinburgh}            %% \institution is required
 }
 \email{s.z.manilov@sms.ed.ac.uk}          %% \email is recommended
 
-\author{Hidehiko Masuhara}
+\author[H. Masuhara]{Hidehiko Masuhara}
 \affiliation{
   \institution{Tokyo Institute of Technology}            %% \institution is required
 }
@@ -112,7 +126,7 @@
 
 
 
-
+\setlength{\belowcaptionskip}{-5pt}
 
 \begin{abstract}
 We present the design and implementation of \emph{dart2java}, an experimental Dart to Java compiler. It is implemented in Dart and currently supports many but not all Dart language constructs. dart2java is a playground to evaluate performance implications of running Dart code on the JVM and to investigate if it is possible to write Dart code in a largely Java-dominated environment.
@@ -140,25 +154,24 @@ This paper describes the architecture of dart2java, performance optimizations su
 \section{Introduction}
 Dart is an object-oriented, class-based programming language and was originally designed as a replacement for JavaScript as the scripting language of the web. Nowadays, Dart can be used for standalone applications running in the \emph{Dart VM} and for web applications with Google's source-to-source compiler to JavaScript (\emph{DDC}). This paper presents the design and implementation of dart2java, an experimental Dart to Java compiler, whose design is inspired by DDC.
 
-At first sight, Dart's syntax is similar to Java but it provides special notations for commonly used features such as list/map literals, getter/setter methods or factory constructors. Therefore, we think that Dart is an interesting alternative for Java programmers. The motivation for dart2java is threefold: First, dart2java can provide a migration path from a mostly Java-dominated environment to a Dart environment, if Java code can be called from Dart (and vice versa). Second, dart2java is an experiment to see if Dart code is suitable for execution on the JVM. Finally, dart2java allows programmers to write Dart code for platforms where only a Java VM is available. % Style guide says "don't use firstly etc anymore" ;)
+Dart's syntax is similar to Java but it provides special notations for commonly used features such as list/map literals, getter/setter methods, or factory constructors. Therefore, we think that Dart is an interesting alternative for Java programmers. The motivation for dart2java is threefold: First, dart2java can provide a migration path from a mostly Java-dominated environment to a Dart environment, if Java code can be called from Dart (and vice versa). Second, dart2java is an experiment to see if Dart code is suitable for execution on the JVM. Finally, dart2java allows programmers to write Dart code for platforms where only a Java VM is available. % Style guide says "don't use firstly etc anymore" ;)
 % Start with with uppercase letter after colon if it is an entire sentence
  
 \section{Architecture}
-Every Dart system has two components: A Dart implementation (compiler/interpreter; e.g., the Dart VM or dart2java) and the Dart SDK. The latter one contains Dart source code of core interfaces (such as \texttt{int} and \texttt{object}) and standard library classes, and is meant to be shared by all Dart implementations. The Dart SDK provides two kinds of variation points for Dart implementations. First, some methods are declared as external: It is up to the Dart implementation to provide an implementation for the method. And second, certain core classes are pure interfaces (all methods are abstract) and it is up to the Dart implementation to provide an implementation class; only the public SDK interface type will be exposed to programmers, not the implementation class type.
+Every Dart system has two components: A Dart implementation (compiler/interpreter; e.g., the Dart VM or dart2java) and the Dart SDK. The latter one contains Dart source code of core interfaces (such as \texttt{int} and \texttt{object}) and standard library classes. It is meant to be shared by all Dart implementations and provides two kinds of variation points for Dart implementations. First, some methods are declared as external: It is up to the Dart implementation to provide an implementation for the method. And second, certain core classes are pure interfaces (all methods are abstract) and it is up to the Dart implementation to provide an implementation class; only the public SDK interface type will be exposed to programmers, not the implementation class type.
 
 \paragraph{Compilation Process}
 \begin{figure}[!tp]
     \includegraphics[width=\columnwidth]{dart2java_compile_user_code.pdf}
-    \vspace{-10pt}
     \caption{Dart Code Compilation Process}
     \label{fig:user_code_compilation}
 \end{figure}
-dart2java uses \emph{Analyzer} and \emph{Kernel}\footnote{A front-end and an intermediate tree representation for Dart.} to generate a typed abstract syntax tree of every Dart class (Figure~\ref{fig:user_code_compilation}). This Dart AST is then transformed into a Java AST, generating one Java interface and one Java class for every Dart class, along with generic specializations (Section~\ref{sec:generic_spec}). The Java interface is necessary because every Dart class implicitly defines an interface that can be implemented by any class. The resulting Java source code can then be compiled and run with a copy of the compiled Dart SDK in the classpath.
+dart2java uses \emph{Analyzer} and \emph{Kernel}\footnote{A front-end and an intermediate tree representation for Dart.} to generate a typed abstract syntax tree of every Dart class (Figure~\ref{fig:user_code_compilation}). This Dart AST is then transformed into a Java AST, generating one Java interface and one Java class for every Dart class, along with generic specializations (Section~\ref{sec:generic_spec}). The Java interface is necessary because every Dart class implicitly defines an interface that can be implemented by any class. The resulting Java source code can be compiled and run with a copy of the compiled Dart SDK in the classpath.
 
-The compilation process for the Dart SDK is mostly identical but starts with \emph{patching}: Some external methods are replaced with pure Dart implementations. For example, the external factory constructor\footnote{A factory constructor is a static method that is run when instantiating a class. It may return an instance of a subclass.} for \texttt{Map} is replaced with a concrete one, creating an instance of \texttt{LinkedHashMap}, a class that is implemented in Dart and shipped together with dart2java. Patching allows us to implement external methods in Dart without having to change the Dart SDK itself.
+The compilation process for the Dart SDK is mostly identical but starts with \emph{patching}: Some external methods are replaced with pure Dart implementations. For example, the external factory constructor for \texttt{Map} is replaced with a concrete one, creating an instance of \texttt{LinkedHashMap}, a class that is implemented in Dart and shipped together with dart2java. Patching allows us to implement external methods in Dart without having to change the Dart SDK itself.
 
 \begin{figure}[!tp]
-\small
+\footnotesize
 \begin{tabularx}{\columnwidth}{|l|X|}
 \hline \hline
 Constructor Semantics & Instance method for constructor body \\ \hline
@@ -176,91 +189,99 @@ Mixins & Insert copy of mixin in hierarchy (fut. work) \\ \hline
 Operators & Ordinary Java method with name mangling \\ \hline
 Optional Parameters & Automatically-generated method overloads \\ \hline
 Synchronization & \texttt{async} / \texttt{await} are not supported yet \\ \hline
-Top-level Members & Special \texttt{\_\_TopLevel\_\_} class \\ \hline
+Top-level Members & Special \texttt{\_\_TopLevel} class \\ \hline
 Type Casts & Runtime type system check (if necessary) and Java type cast \\
 \hline \hline
 \end{tabularx}
     \caption{Translation of Dart Language Features to Java}
-        \vspace{-5pt}
     \label{fig:translation_overview}
 \end{figure}
 \begin{figure}[!tp]
 \includegraphics[width=\columnwidth]{helper_class.pdf}
-    \vspace{-10pt}
     \caption{Method call with name defined in Dart \texttt{Object}}
-    \vspace{-5pt}
     \label{fig:helper_object}
 \end{figure}
 
 \section{Code Generation}
-This section describes the Java code generation process in dart2java (see Figure~\ref{fig:translation_overview} for an overview). The source code is already parsed and the type of every expression is known at this point of time.
+This section describes the Java code generation process (see Figure~\ref{fig:translation_overview} for an overview). The Dart source code is already parsed and types are fully inferred at this point of time.
 
 \subsection{Datatypes}
 There are a number of type checking modes in Dart. In \emph{unchecked mode}, all type names are treated as mere comments and actual types are inferred. dart2java is based on \emph{strong mode} which provides many type guarantees at compile time. Types can either be specified by the programmer or are inferred. Runtime type checking is required only for type casts, implicit downcasts and when assigning (or passing as an argument) an object whose type is generic.
 
-Java provides boxed and unboxed versions for the primitive types \emph{boolean}, \emph{float}, \emph{double}, and \emph{integer}. dart2java always uses unboxed types, because they are significantly faster in numeric applications\footnote{Integers bigger than \texttt{Integer.MAX\_VALUE} are not supported.}. Method calls on such objects are translated to invocations of static methods of \emph{helper classes} (e.g., \texttt{IntegerHelper.gcd} for Dart \texttt{int.gcd}).  Calls to methods defined in Dart \texttt{Object} are dispatched to a primitive helper or to \texttt{ObjectHelper}, which can handle Dart objects, \texttt{null}, and ordinary Java objects outside of Dart's class hierarchy (Figure~\ref{fig:helper_object}). The generated Java code never uses boxed types except for the following cases.
-\begin{itemize}
-    \item Assignment (including passing arguments during method calls) to a variable (parameter) of type \texttt{Object} or \texttt{num}
-    \item Generic class with $>2$ type parameters (Section~\ref{sec:generic_spec})
-\end{itemize}
+Java provides boxed and unboxed versions for the primitive types \emph{boolean}, \emph{float}, \emph{double}, and \emph{integer}. dart2java always uses unboxed types, because they are significantly faster in numeric applications\footnote{Integers bigger than \texttt{Integer.MAX\_VALUE} are not supported.}. Method calls on such objects are translated to invocations of static methods of \emph{helper classes} (e.g., \texttt{IntegerHelper.gcd} for Dart \texttt{int.gcd}).  Calls to methods defined in Dart \texttt{Object} are dispatched to a primitive helper or to \texttt{ObjectHelper}, which can handle Dart objects, \texttt{null}, and ordinary Java objects outside of Dart's class hierarchy (Figure~\ref{fig:helper_object}). The generated Java code never uses boxed types except for the following cases: (a) Assignment (including passing arguments during method calls) to a variable (parameter) of type \texttt{Object} or \texttt{num}, and (b) Generic classes with more than two type parameters (Section~\ref{sec:generic_spec}).
 
-Every Dart class implicitly defines an interface that can be implemented by any other class. dart2java creates a class and an interface (interface names end with \texttt{\_IF}) for every Dart class and always uses the interface type during code generation except for instantiation of classes and invocation of static methods.
+Every Dart class implicitly defines an interface that can be implemented by any other class. dart2java creates a class and an interface (ending with \texttt{\_IF}) for every Dart class and always uses the interface type during code generation except for instantiation of classes and invocation of static methods.
 
 \paragraph{Class Hierarchy}
-Dart supports single inheritance, interfaces and mixins. If no explicit superclass is specified, a Dart class is a subclass of \texttt{Object} (a core interface defined in the SDK). This interface provides the usual methods (e.g., for equality checking) and is implemented by the hand-written Java class \texttt{DartObject}, provided by dart2java. Every generated Java class implements exactly one interface: the interface that is generated for that class. If the corresponding Dart class implements other interfaces, the generated Java interface extends those interfaces. Mixins are future work.
+Dart supports single inheritance, interfaces, and mixins. If no explicit superclass is specified, a Dart class is a subclass of \texttt{Object} (a core interface defined in the SDK). This interface provides the usual methods (e.g., for equality checking) and is implemented by the hand-written Java class \texttt{DartObject}, provided by dart2java. Every generated Java class implements exactly one interface: the interface that is generated for that class. If the corresponding Dart class implements other interfaces, the generated Java interface extends those interfaces. Mixins are future work.
 
 \paragraph{Constructors}
-Dart constructors are more powerful than Java constructors: There are ordinary constructors and \emph{factory constructors}, which are also invoked with the \texttt{new} keyword but are actually static methods (and can return existing objects) with a return type that can be any subtype of the class. Constructors can have names and classes can have multiple constructors. In addition, there is special special syntax for initializing fields (similar to C++), and a \texttt{super} constructor can be invoked at any point of time. For all constructors, the entry point in the generated Java code is a static method and the constructor body is in an instance method because Java constructors allow \texttt{super} calls only as the first statement.
+Dart constructors are more powerful than Java constructors: There are ordinary constructors and \emph{factory constructors}, which are also invoked with the \texttt{new} keyword but are actually static methods (and can return existing objects) with a return type that can be any subtype of the class. Constructors can have names and classes can have multiple constructors. In addition, there is special syntax for initializing fields (similar to C++), and a \texttt{super} constructor can be invoked at any point of time. For all constructors, the entry point in the generated Java code is a static method and the constructor body is in an instance method because Java constructors allow \texttt{super} calls only as the first statement.
 
 \subsection{Non-nullability of Primitive Types}
-One disadvantage of using unboxed types is that \texttt{null} can no longer be assigned to such variables. dart2java ships with a modified version of \emph{Analyzer} (the component performing type inference) to ensure that all variables of primitive type are explicitly initialized with a non-null value in the Dart user code. Casting a null value at runtime results in a null pointer exception. Moreover, dart2java's semantics of \texttt{Map} had to be changed. While the Dart SDK requires implementations to return \texttt{null} when looking up a non-existent key, our \texttt{Map} implementation throws an exception instead.
+Due to using exclusively unboxed types, \texttt{null} can no longer be assigned lvalues of primitive type. dart2java ships with a modified version of \emph{Analyzer} (the component performing type inference) to ensure that such variables are explicitly initialized with a non-null value in the Dart code. Casting a null value at runtime results in a null pointer exception. Moreover, dart2java's implementation of \texttt{Map} throws an exception when looking up a non-existent key, instead of returning \texttt{null} (a change of language semantics).
 
 \subsection{Reified Generics}
 In contrast to Java generics~\cite{Bracha:1998:MFS:286936.286957}, Dart generics are reified, i.e., an object knows the binding of its generic type variables at runtime (Java erases types). dart2java provides a runtime type system for checking types during assignments. Every Dart object has a field containing an object representing its (fully reified) type. Type checks are inserted when assigning/passing objects of generic type. 
 
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 class A<T> {
   boolean isString() => T == String;
-  void printToConsole(T item) { print(item); }
-}
+  void printMe(T item) { print(item); }
+}%*\vspace{0.5em}*)
 print(new A<String>().isString());
 \end{lstlisting}
-The generated Java class will have a \texttt{type} variable containing the reified type, which will be used for type checking. Furthermore, \texttt{printToConsole} will check if \texttt{item} is actually a string. 
+\end{mdframed}
+In the above example, the generated Java class will have a \texttt{type} variable containing the fully reified type of \texttt{A}, which will be used for type checking. Furthermore, \texttt{printMe} will check if \texttt{item} is actually a string. 
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 static final Type STR = /* ... */
-static final Type A_STR = /* ... */
-
+static final Type A_STR = /* ... */ %*\vspace{0.5em}*)
 class A<T> implements A_IF<T> {
   private Type type;
   public A(Type type) {
     this.type = type; this._constructor();
-  }
-  boolean isString() {return type.typeParams[0] == STR;}
-  void printToConsole(T item) {
+  }%*\vspace{0.5em}*)
+  boolean isString() {
+    return type.typeParams[0] == STR;
+  }%*\vspace{0.5em}*)
+  void printMe(T item) {
     TypeSystem.check(item, type.typeParams[0]);
-    System.out.println(item);
+    dart.core.__TopLevel.print(item);
   }
-}
-System.out.println(new A<String>(A_STR));
+}%*\vspace{0.5em}*)
+dart.core.__TopLevel.print(new A<String>(A_STR).isString());
 \end{lstlisting}
+\end{mdframed}
 Type checks for arguments of generic type have to be inserted due to generic covariance, as shown in the following listing. The Java type system alone cannot detect the type violation at runtime, because type information is erased.
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 A<Object> a = new A<String>();
-a.printToConsole(10);	// throw exception
+a.printMe(10);	// runtime exception
 \end{lstlisting}
+\end{mdframed}
 Generic methods are also reified: An additional type object per type parameter will be passed as an argument.
 
 \subsection{Covariant Generics}
-In contrast to Java generics, Dart generics are covariant. Intuitively, covariance~\cite{Castagna:1995:CCC:203095.203096} means that subtyping takes into account the binding of generic type variables and requires them to be in a subtyping relationship as well. For example, \texttt{List<int>} is a subtype of \texttt{List<Object>} in Dart. Generated Java classes do not have to be generic. For example, a generic Dart class \texttt{A<T>} could be translated to a non-generic Java class \texttt{A} where all occurrences of \texttt{T} are replaced with \texttt{Object}. However, generated Java classes are generic for interoperability reasons (Section~\ref{sec:interop}): The generated code should be easy to use from Java without type casts. To make generated Java code compliant with the Java type system while preserving covariance, dart2java inserts casts to raw types. The following example defines a list of \texttt{A} and casts it to a list of \texttt{Object}, then to a list of \texttt{String}. This should trigger an exception at runtime.
+In contrast to Java generics, Dart generics are covariant. Intuitively, covariance~\cite{Castagna:1995:CCC:203095.203096} means that subtyping takes into account the binding of generic type variables and requires them to be in a subtyping relationship as well. For example, \texttt{List<int>} is a subtype of \texttt{List<Object>} in Dart. Generated Java classes do not have to be generic. For example, a generic Dart class \texttt{A<T>} could be translated to a non-generic Java class \texttt{A} where all occurrences of \texttt{T} are replaced with \texttt{Object}. However, generated Java classes are generic so that the return values of their methods are easy to use from Java code (without type casts). Type casts to raw types make generated Java code compliant with the Java type system while preserving covariance. E.g., the following code defines a list of \texttt{A} and casts it to a list of \texttt{Object}, then to a list of \texttt{String}. This should trigger an exception at runtime.
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 List<A> a = new List<A>();
 List<Object> o = a;
 // The following line causes a runtime error
-List<String> s = o %*\textcolor{blue}{as}*) List<String>;
+List<String> s = o %*\textbf{as}*) List<String>;
 // Analyzer reports a (compile-time) error
-List<String> s = a %*\textcolor{blue}{as}*) List<String>;
+List<String> s = a %*\textbf{as}*) List<String>;
 \end{lstlisting}
+\end{mdframed}
 The generated Java code utilizes the runtime type system to perform type checks for downcasts.
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 List_IF<A_IF> a = new List<A_IF>();
 List_IF<Object_IF> o = (List_IF<Object_IF>)(List_IF) a;
@@ -268,51 +289,52 @@ List_IF<Object_IF> o = (List_IF<Object_IF>)(List_IF) a;
 List_IF<String> o = (List_IF<String>) (List_IF) 
     TypeSystem.check(a, LIST_STRING_TYPE);
 \end{lstlisting}
+\end{mdframed}
 
 \subsection{Generic Specializations}
 \label{sec:generic_spec}
-Using only unboxed versions of primitive types requires additional work when combined with generics, because Java allows only their boxed counterparts when used as generic types. dart2java could fall back to boxed types in such a case. However, since Dart does not have an array datatype and primitive types are widely used as generic types in many applications (typically with lists or maps), including in the benchmarks we used, dart2java generates specialized versions of generic classes for all primitive types.
+Using only unboxed versions of primitive types requires additional work when combined with generics, because Java allows only their boxed counterparts when used as type arguments. dart2java could fall back to boxed types in such a case. However, since Dart does not have an array datatype and primitive types are widely used as generic types in many applications (typically with lists or maps), including in the benchmarks we used, dart2java generates specialized versions of generic classes for all primitive types.
 
 For a generic class \texttt{A<T>}, dart2java generates four classes and interfaces. One class and interface is generated for each of \emph{bool} (\texttt{A\_\_bool}, \texttt{A\_\_bool\_IF)}, \emph{double} and \emph{int}. The fourth one (\texttt{A<T>},  \texttt{A\_IF<T>}) is a generic class/interface for all other types.
 
 \begin{figure}[!htp]
 	\includegraphics[width=\columnwidth]{generic_spec_classes.pdf}
-    \vspace{-10pt}
     \caption{Generated Java Classes/Interfaces for \texttt{A<T>}}
     \label{fig:generic_spec_classes}
 \end{figure}
-
-Figure~\ref{fig:generic_spec_classes} illustrates the subclass relationship between those classes and interfaces. All generated classes are subclasses of \texttt{DartObject} (generated Java class for the Dart class \texttt{Object}) since no other superclass was specified. However, the specialized interfaces are subinterfaces of \texttt{A\_IF<T>}, where \texttt{T} is bound to the corresponding boxed type. This is necessary because of covariance (e.g., \texttt{A<int>} is a subtype of \texttt{A<Object>} in Dart). Inside a specialized class, all occurrences of \texttt{T} are replaced with the unboxed specialized type.
-
-For classes with two generic type variables, all combinations of specializations are generated, i.e., 16 classes and 16 interfaces in total. No specializations are generated for classes with more than two type variables because of the combinatorial explosion of the number of classes, but annotations could be used to tell the compiler which types should be specialized for~\cite{Dragos:2009:CGT:1565824.1565830}.
-
-dart2java's implementation class for the SDK interface \texttt{List<T>} is special: All of its specializations are hand-written and backed by a Java array. The implementation of \texttt{Map<K, V>} is written in Dart and backed by two Dart lists.
-
 \begin{figure*}[!t]
 \includegraphics[width=\textwidth]{benchmark_plot.pdf}
-\vspace{-10pt}
-\caption{Benchmarks comparing dart2java (with/without specializations, with only boxed primitives) and Dart VM (checked/unchecked)}
+\caption{Benchmarks comparing dart2java (with/without specializations, with only boxed primitives) and Dart VM (checked/unchecked). All benchmarks ran repeatedly for 10 sec. after 7.5 sec. of warmup. Numbers are average running times.}
 \label{fig:benchmarks}
 \end{figure*}
+
+Figure~\ref{fig:generic_spec_classes} illustrates the subclass relationship between those classes and interfaces. All generated classes are subclasses of \texttt{DartObject} (generated Java class for the Dart class \texttt{Object}) if no other superclass was specified. However, the specialized interfaces are subinterfaces of \texttt{A\_IF<T>}, where \texttt{T} is bound to the corresponding boxed type. This is necessary because of covariance (e.g., \texttt{A<int>} is a subtype of \texttt{A<Object>} in Dart). Inside a specialized class, all occurrences of \texttt{T} are replaced with the unboxed specialized type.
+
+For classes with two generic type variables, all combinations of specializations are generated (16 classes and interfaces). No specializations are generated for classes with more than two type variables because of the combinatorial explosion of classes, but annotations could be used to specify which types to specialize for~\cite{Dragos:2009:CGT:1565824.1565830}. 
+
+dart2java's implementation class for the SDK interface \texttt{List<T>} is special: All of its specializations are hand-written and backed by a Java array. The implementation of \texttt{Map<K, V>} is written in Dart and backed by two Dart lists.
 
 \subsection{Delegator Methods}
 Unboxed primitive types are not subtypes of \texttt{Object} in Java. Therefore, overriding a method that consumes primitive types with a method consuming non-primitive types (or vice versa) requires additional effort. The problem is shown in its most basic form in the following Dart source code snippet.
 
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 class A { void f(int a); }
 class B extends A { void f(Object a); }
 (new B()).f(10);
 \end{lstlisting}
-
-The generated Java source code would be mostly identical. However, \texttt{B.f} does not override \texttt{A.f}; instead, it defines a new method overload. The method call at the end of the snippet invokes the one defined in \texttt{A}. To solve this problem, dart2java adds \emph{delegator methods} for every method that consumes a primitive type but has a subtype where the method is overridden with one consuming a non-primitive type. Delegator methods perform a type cast and call the actual method, as shown below.
-
+\end{mdframed}
+The generated Java source code would be mostly identical. However, \texttt{B.f} does not override \texttt{A.f}; instead, it defines a method overload. The method call invokes the method defined in \texttt{A}. To solve this problem, dart2java adds \emph{delegator methods} for every method that consumes a primitive type but has a subtype where the method is overridden with one consuming a non-primitive type. Delegator methods perform a type cast and call the actual method:
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
 \begin{lstlisting}
 void B.f(int a) { f((Integer) a); }
 \end{lstlisting}
+\end{mdframed}
+Delegator methods are also required for generic specializations. For example, for the method \texttt{List<T>.add(T obj)}, dart2java generates a delegator method \texttt{List\_\_int. add(Object obj)} (delegating to \texttt{add(int obj)}).
 
-Delegator methods are also required for generic specializations. For example, for the method \texttt{List<T>.add(T obj)}, a delegator method \texttt{List\_\_int.add(Object obj)} is generated (delegating to \texttt{add(int obj)})\footnote{Our current implementation uses an unnecessarily more complex approach with name mangling, resulting in more delegator methods. However, the number of type casts and runtime method calls is identical.}.
-
-The rule for generating delegator methods is as follows. Let us assume that we are translating \texttt{A.method}. Let $S$ be the set of all supertypes, i.e., super classes, interfaces, super interfaces and/or super types for generic type parameter bindings\footnote{For \texttt{Map<int, int>}, this includes \texttt{Map<Object, int>}, \texttt{Map<int, Object>} and \texttt{Map<Object, Object>}.}. For example, for \texttt{List<int>}, $S=\{\texttt{List<Object>}, \texttt{Object} \}$. For every $s \in S$, if \texttt{method} is defined in $s$ and \texttt{A.method} is not a valid Java override of \texttt{$s$.method}, generate a delegator method in \texttt{A} with the signature of \texttt{$s$.method}. A method is not a valid Java override if the types of the parameters are not identical/super types.
+The rule for generating delegator methods is as follows. When translating \texttt{A.method}, let $S$ be the set of all supertypes, i.e., super classes, interfaces, super interfaces and/or super types for generic type parameter bindings\footnote{For \texttt{Map<int, int>}, this includes \texttt{Map<Object, int>}, \texttt{Map<int, Object>} and \texttt{Map<Object, Object>}.}. E.g., for \texttt{List<int>}, $S=\{\texttt{List<Object>},$ $ \texttt{Object} \}$. For every $s \in S$, if \texttt{method} is defined in $s$ and \texttt{A.method} is not a valid Java override of \texttt{$s$.method}, generate a delegator method in \texttt{A} with the signature of \texttt{$s$.method}\footnote{dart2java currently uses another technique with name mangling, more deleg. methods, but the same number of type casts/runtime method calls.}. A method is not a valid Java override if the types of the parameters are not identical/super types.
 
 
 % List<Object> x = new List<int>();
@@ -322,7 +344,7 @@ The rule for generating delegator methods is as follows. Let us assume that we a
 \subsection{Benchmarks}
 Figure~\ref{fig:benchmarks} shows the runtime of 9 benchmarks, comparing dart2java with the Dart VM. We ran the Dart VM in both checked mode and unchecked mode (the latter treats types as mere comments). dart2java is based on strong mode with additional compile-time type guarantees which is not available in the Dart VM yet, allowing us to avoid some runtime type checks (see Dart Language Guide). The Dart VM is the standard VM for Dart; ideally, dart2java should deliver performance comparable to the Dart VM. We ran all benchmarks on a system with an Intel Core i7-6820HQ CPU, 32 GB RAM, Ubuntu 16.04.1, OpenJDK 1.8.0\_111 and Dart VM 1.22.1.
 
-Five benchmarks are taken from the ``ton80'' benchmark suite. Havlak uses a \texttt{Map<int, BasicBlock>} data structure, which is why the specialized version is faster here. The speedup is even better in FluidMotion, MatrixMul, DiamondSquare, which use \texttt{List<double>}, \texttt{List<List<int>>},  \texttt{List<List<int>>}, respectively. These three benchmarks along with BarnsleyFern (a highly numeric benchmark) are an indicator that the generated JVM code with unboxed primitive types can be executed faster on the JVM than on the Dart VM. However, some other benchmarks are slower in dart2java, mostly due to the overhead of instance creation and our runtime type system, which is not optimized for performance yet. In Tracer, all variables have type \emph{dynamic}. dart2java generates code that uses the Java Reflection API and the Java Method Handles API. It does not cache the method lookup results or perform any other optimizations~\cite{Marr:2015:ZMR:2737924.2737963}. The Dart VM can execute the same workload in less than one millisecond. Overall, the performance of dart2java is comparable to the Dart VM, even though the runtime type system is still unoptimized.
+Five benchmarks are taken from the ``ton80'' benchmark suite. Havlak uses \texttt{Map<int, BasicBlock>}, so the specialized version is faster here. The speedup is even better in FluidMotion, MatrixMul, DiamondSquare, which use \texttt{L<double>}, \texttt{L<L<int>{>}},  \texttt{L<L<int>{>}}, respectively (\texttt{L} means \texttt{List}). These three benchmarks along with BarnsleyFern (a highly numeric benchmark) are an indicator that the generated JVM code with unboxed primitive types can be executed faster on the JVM than on the Dart VM. However, some other benchmarks are slower in dart2java, mostly due to the overhead of instance creation and our runtime type system, which is not optimized for performance yet. In Tracer, all variables have type \emph{dynamic}. dart2java generates code that uses the Java Reflection API and the Java Method Handles API. It does not cache the method lookup results or perform any other optimizations~\cite{Marr:2015:ZMR:2737924.2737963}. The Dart VM can execute the same workload in less than one millisecond. Overall, the performance of dart2java is comparable to the Dart VM, even though the runtime type system is still unoptimized.
 
 \section{Language Interoperability}
 \label{sec:interop}
@@ -362,69 +384,62 @@ We would like to thank Vijay Menon, Jennifer Messerly and Leaf Peterson from Goo
 \section{Appendix: Full Example}
 The following listing shows a generic class in Dart code. It also  illustrates examples of where Dart syntax is different from Java syntax, such as getters and named constructors.
 
-\begin{lstlisting}
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily]
 class MyMap<K, V> extends Map<K, V> {
   List<K> keys;
-  List<V> values;
-
-  int get size => keys.length;
-  bool get isEmpty => keys.isEmpty;
-
+  List<V> values;%*\vspace{0.5em}*)
+  int %*\textbf{get}*) size => keys.length;
+  %*\textbf{bool}*) %*\textbf{get}*) isEmpty => keys.isEmpty;%*\vspace{0.5em}*)
   MyMap() {
     keys = new List<K>();
     values = new List<V>();
-  }
-
-  MyMap.fromList(List<K> keys, List<V> values) : keys = keys, values = values;
-
-  V operator [](K key) {
+  }%*\vspace{0.5em}*)
+  MyMap.fromList(List<K> keys, List<V> values) 
+    : keys = keys, values = values;%*\vspace{0.5em}*)
+  V %*\textbf{operator}*) [](K key) {
     for (int i = 0; i < keys.length; i++) {
       if (keys[i] == key) {
         return values[i];
       }
-    }
-
+    }%*\vspace{0.5em}*)
     throw "Key not found";
   }
 }
 \end{lstlisting}
+\end{mdframed}
 
 The following listing shows the generated Java class (without specializations and interfaces).
 
-\begin{lstlisting}
+\begin{mdframed}[outerlinewidth=0.1pt,outerlinecolor=black,skipabove=4pt,
+  innerleftmargin=5pt,innerrightmargin=0pt,innertopmargin=0pt,innerbottommargin=0pt]
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily]
 class MyMap<K, V> extends DartObject implements MyMap_IF<K, V> {
   dart.core.List_IF<K> keys;
-  dart.core.List_IF<V> values;
-
+  dart.core.List_IF<V> values;%*\vspace{0.5em}*)
   int getSize() { return keys.getLength(); }
-  boolean getIsEmpty() { return keys.getIsEmpty(); }
-  
+  boolean getIsEmpty() { return keys.getIsEmpty(); }%*\vspace{0.5em}*)
   public MyMap(Type type) {
     this.type = type;
-  }
-  
+  }%*\vspace{0.5em}*)
   public static <K, V> MyMap_IF<K, V> new_(Type type) {
-  	MyMap_IF<K, V> instance;
-   
+  	MyMap_IF<K, V> instance;%*\vspace{0.5em}*)
     if (type.typeParams[0] == INT_TYPE && type.typeParams[1] == INT_TYPE) {
       instance = new MyMap__int_int(type);
     } else if (/* ... */) { /* ... */
     } else {
       instance = new MyMap<K, V>(type);
-    }
-    
+    }%*\vspace{0.5em}*)
     instance._constructor();
     return instance;
-  }
-  
+  }%*\vspace{0.5em}*)
   public static <K, V> MyMap_IF<K, V> new_fromList(Type type, List_IF<K> keys, List_IF<V> values) {
   	MyMap_IF instance;
-    // (Initialize instance)
-    
+    // (Initialize instance)%*\vspace{0.5em}*)
     instance._constructor_fromList(keys, values);
     return instance;
-  }
-  
+  }%*\vspace{0.5em}*)
   public V operatorAt_MyMap(K key) {
     for (int i = 0; i < getKeys().getLength(); i++) {
       if (dart._runtime.helpers.ObjectHelper.operatorEqual(getKeys().operatorAt(i), key)) {
@@ -435,6 +450,7 @@ class MyMap<K, V> extends DartObject implements MyMap_IF<K, V> {
   }
 }
 \end{lstlisting}
+\end{mdframed}
 
 \section{Links to Dart Components}
 \begin{itemize}
